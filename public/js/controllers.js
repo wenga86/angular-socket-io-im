@@ -10,10 +10,11 @@ function AppCtrl($scope, socket) {
   socket.on('init', function (data) {
     $scope.name = data.name;
     $scope.users = data.users;
+    $scope.setName = true;
   });
 
   socket.on('send:message', function (message) {
-    $scope.messages.push(message);
+    $scope.messages.unshift(message);
   });
 
   socket.on('change:name', function (data) {
@@ -21,7 +22,7 @@ function AppCtrl($scope, socket) {
   });
 
   socket.on('user:join', function (data) {
-    $scope.messages.push({
+    $scope.messages.unshift({
       user: 'chatroom',
       text: 'User ' + data.name + ' has joined.'
     });
@@ -30,7 +31,7 @@ function AppCtrl($scope, socket) {
 
   // add a message to the conversation when a user disconnects or leaves the room
   socket.on('user:left', function (data) {
-    $scope.messages.push({
+    $scope.messages.unshift({
       user: 'chatroom',
       text: 'User ' + data.name + ' has left.'
     });
@@ -56,7 +57,7 @@ function AppCtrl($scope, socket) {
       }
     }
 
-    $scope.messages.push({
+    $scope.messages.unshift({
       user: 'chatroom',
       text: 'User ' + oldName + ' is now known as ' + newName + '.'
     });
@@ -70,11 +71,12 @@ function AppCtrl($scope, socket) {
       name: $scope.newName
     }, function (result) {
       if (!result) {
-        alert('There was an error changing your name');
+        alert('This name has already been taken!');
       } else {
-        
+
         changeName($scope.name, $scope.newName);
 
+        $scope.setName = false;
         $scope.name = $scope.newName;
         $scope.newName = '';
       }
@@ -89,7 +91,7 @@ function AppCtrl($scope, socket) {
     });
 
     // add the message to our model locally
-    $scope.messages.push({
+    $scope.messages.unshift({
       user: $scope.name,
       text: $scope.message
     });

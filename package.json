@@ -3,8 +3,12 @@
   , "version": "0.0.1"
   , "private": true
   , "dependencies": {
-      "express": "2.5.10"
+      "express": "3.4.7"
     , "jade": ">= 0.26.1"
-    , "socket.io": ">= 0.9.6"
+    , "socket.io": ">= 0.9.16"
+  },
+  "devDependencies": {
+    // Should be installed globally in order to run binary
+    "nodemon" : "*"
   }
 }

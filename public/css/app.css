@@ -1,9 +1,59 @@
 /* app css stylesheet */
+body {
+  background: #e5e5e5;
+}
+
+.red {
+  color: #e51937;
+}
+
+.center {
+  text-align: center;
+}
+
+header {
+  background-color: #fafafa;
+  border-bottom: 1px solid #fff;
+  border-top: 1px solid #e5e5e5;
+  padding: 0.2em;
+}
+
+p.tkml {
+  font-family: 'Karla', sans-serif;
+  font-size: 2.4em;
+  line-height: 0.5em;
+  font-weight: 100;
+  color: #000000;
+  vertical-align: top;
+  padding: 0 0 0.3em;
+}
+
+p.tkml span.left, p.tkml span.right {
+  position: relative;
+  z-index: 3;
+}
+
+ p.tkml span.right {
+  left: -0.6em;
+ }
+
+p.tkml span.red {
+  font-family: 'Bigelow Rules', cursive;
+  font-size: 3em;
+  position: relative;
+  top: 0.21em;
+  left: -0.06em;
+  font-weight: 100;
+  z-index: 2;
+}
+
+p.tkml span.chat {
+  padding-left: 0.2em;
+}
 
 .overflowable {
-  height: 240px;
+  height: 100%;
   overflow-y: auto;
-  border: 1px solid #000;
 }
 
 .overflowable p {
@@ -17,4 +67,165 @@
 
 .clr {
   clear: both;
+}
+
+div.set-name {
+  position: absolute;
+  padding: 0.8em;
+  top: 30%;
+  left: 50%;
+  margin: -5.5em 0 0 -10.5em;
+  background: #505050;
+  border-radius: 0.8em;
+}
+
+div.set-name-inner {
+  background: #FFFFFF;
+  border-radius: 0.4em;
+  padding: 1em;
+  height: 16em;
+  width: 25em;
+}
+
+div.set-name h2, div.set-name p {
+  text-align: center;
+}
+
+div.cover {
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top:0;
+  left: 0;
+}
+
+div.chat-header {
+  border-top: 4px solid #CFCFCF;
+  background: #505050;
+  border-bottom: 4px solid #CFCFCF;
+}
+
+div.chat-header h1 {
+  line-height: 2.6em;
+  color: #FFFFFF;
+}
+
+div.chat-header h1 i {
+  padding: 0 0.5em 0 0;
+}
+
+.chatroom ul {
+  list-style: none;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.chatroom ul li p.message {
+  background: #FFFFFF;
+  padding: 1em;
+  margin: 1em 0;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+
+.chatroom ul li.odd p.message {
+  margin-right: 4em;
+}
+
+.chatroom ul li.even p.message {
+  margin-left: 4em;
+}
+
+.chatroom ul li p.message.alert.alert-warning {
+  background: #fcf8e3;
+}
+
+.chatroom ul li .user-icon {
+  border-radius: 4px;
+  background-color: #31708f;
+  color: #d9edf7;
+  border-color: #bce8f1;
+}
+
+.chatroom ul li .user-icon i {
+  padding: 0.39em 0.5em;
+}
+
+.chatroom ul li.even .user-icon {
+  float:left;
+}
+
+.chatroom ul li.odd .user-icon {
+  float:right;
+}
+
+.clr {
+  border: 1px solid #CCCCCC;
+  padding: 0.3em;
+  margin-top: 1em;
+}
+
+.clr ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.clr ul li {
+  display: inline-block;
+}
+
+.clr ul li.btn {
+  width: 58px;
+  padding: 0;
+}
+
+.clr ul li.btn input {
+  padding: 0.52em;
+}
+
+.clr ul li.title {
+  width: 70px;
+}
+
+.clr ul li.enter-text {
+  width: 94.6%;
+  padding: 0.4em;
+}
+
+.clr ul li.enter-text input {
+  width: 100%;
+  padding: 0.4em;
+}
+
+
+.message-item.ng-enter,
+.message-item.ng-leave,
+.name-feature.ng-enter,
+.name-feature.ng-leave {
+  -webkit-transition:0.5s linear all;
+  transition:0.5s linear all;
+  position: relative;
+}
+
+.message-item.ng-enter,
+.message-item.ng-leave.ng-leave-active {
+  left: 100em;
+  opacity:0;
+}
+.message-item.ng-leave,
+.message-item.ng-enter.ng-enter-active,
+.name-feature.ng-leave,
+.name-feature.ng-enter.ng-enter-active {
+  left: 0;
+  opacity:1;
+}
+
+.set-name input[type="text"] {
+  padding: 0.3em;
+}
+
+.set-name input[type="button"] {
+  margin-left: 0.6em;
 }

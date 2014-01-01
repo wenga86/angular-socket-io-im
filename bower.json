@@ -1,0 +1,27 @@
+{
+  "name": "ChatApp",
+  "version": "0.0.1",
+  "homepage": "https://github.com/wenga86/angular-socket-io-im.git",
+  "authors": [
+    "Eric Agnew <wenga.eric@gmail.com>"
+  ],
+  "description": "Chact application built on Node.js, MongoDB, Express, Angular, and Socket.io",
+  "main": "app.js",
+  "keywords": [
+    "Socket.io",
+    "Angular",
+    "MongoDB",
+    "Node.js",
+    "Express",
+    "Chat",
+    "Chatroom"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

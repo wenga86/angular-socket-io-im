@@ -1,33 +1,57 @@
 extends layout
 
 block body
-  h1 Angular Socket.io IM Demo App
-  div(ng-controller='AppCtrl')
-    .col
-      h3 Messages
-      .overflowable
-        p(ng-repeat='message in messages',
-          ng-class='{alert: message.user == "chatroom"}') {{message.user}}: {{message.text}}
+  header
+    p.tkml.container
+      span.left tI
+      span.red <
+      span.right ml
 
-    .col
+  div.chat-header.dark-grey
+    div.container
+      h1
+        i.fa.fa-comments.fa-2x
+        | Chatroom
+
+  div.container(ng-controller='AppCtrl')
+    .clr
+      form(ng-submit='sendMessage()')
+        ul
+          li.enter-text
+            input(size='60', ng-model='message' type="text" placeholder="Enter Message Here...")
+          li.btn
+            input(type='submit', value='Send')
+
+    .chatroom
+      ul.overflowable
+        li.message-item(ng-repeat='message in messages',
+          ng-class-even="'even'",
+          ng-class-odd="'odd'")
+          p.user-icon.alert-info
+            i.fa.fa-user.fa-2x
+          p.message(ng-class='{"alert alert-warning": message.user == "chatroom"}') {{message.user}}: {{message.text}}
+
+    .user-list
       h3 Users
       .overflowable
         p(ng-repeat='user in users') {{user}}
 
-    .clr
-      form(ng-submit='sendMessage()')
-        | Message: 
-        input(size='60', ng-model='message')
-        input(type='submit', value='Send')
+    .name-feature(ng-show='setName' )
+      .cover
+      .set-name
+        .set-name-inner
+          h3.center Welcome to the chatroom!
+          p.center Your current user name is
+            span.red {{' ' + name}}
+            | . Please enter a real name to join the chatroom or click cancel to stay anonymous.
+          form(ng-submit='changeName()')
+            p.center
+              input(ng-model='newName', value="{{name}}" size='47' type='text' autofocus="autofocus")
+            input(type='submit', value='Change Name')
+            input(type='button', value='Cancel' ng-click="setName = false")
 
-    .clr
-      h3 Change your name
-      p Your current user name is {{name}}
-      form(ng-submit='changeName()')
-        input(ng-model='newName')
-        input(type='submit', value='Change Name')
-
-  script(src='js/lib/angular/angular.js')
+  script(src='components/angular/angular.js')
+  script(src='components/angular-animate/angular-animate.js')
   script(src='/socket.io/socket.io.js')
   script(src='js/app.js')
   script(src='js/services.js')
